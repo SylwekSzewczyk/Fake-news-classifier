@@ -51,5 +51,3 @@ class FakeNews:
 f = FakeNews.loadData('news.csv')
 f.splitData(0.3)
 f.solve()
-
-f.predict('Donald Trump has resigned from being the president of the United States of America')
