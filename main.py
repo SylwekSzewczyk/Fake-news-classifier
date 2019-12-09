@@ -37,7 +37,7 @@ class FakeNews:
         self.classifier.fit(tfidf_train, self.y_train)
         y_pred = self.classifier.predict(tfidf_test)
         score = accuracy_score(self.y_test, y_pred)
-        print('Accuracy of the solved model: {}'.format(round(100*score,2)))
+        print('Accuracy of the solved model: {} %'.format(round(100*score,2)))
         cm = confusion_matrix(self.y_test, y_pred, labels = ['FAKE', 'REAL'])
         print(cm)
     
@@ -51,3 +51,6 @@ class FakeNews:
 f = FakeNews.loadData('news.csv')
 f.splitData(0.3)
 f.solve()
+
+f.predict('Donald Trump is no longer the president of the United States of America')
+f.predict('Donald Trump is the president of the United States of America')
